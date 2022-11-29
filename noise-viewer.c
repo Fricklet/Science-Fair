@@ -63,6 +63,30 @@ int main(int argc, char **argv)
 		return EXIT_FAILURE;
 	}
 
+	SDL_Texture *noiseTx;
+	{
+		SDL_Surface *noiseSf = SDL_CreateRGBSurface(0, width, height, 24, 0, 0, 0, 0);
+		SDL_LockSurface(noiseSf);
+		
+		uint8_t *pixelData = calloc(3, width * height);
+		for(int i = 0; i < width * height; i++)
+		{
+			memset(pixelData + i * 3, noise[i], 3);		// Copy three bytes since this is 24-bit RGB color coding
+		}
+		memcpy(noiseSf->pixels, pixelData, width * height * 3);
+		free(pixelData);
+		noiseTx = SDL_CreateTextureFromSurface(renderer, noiseSf);
+		SDL_FreeSurface(noiseSf);
+		free(noise);
+	}
+
+	
+	SDL_Rect src;
+	memset(&src, 0, sizeof(src));
+	src.w = width;	src.h = height;
+	SDL_Rect dst;
+	memcpy(&dst, &src, sizeof(src));
+
 	bool running = true;
 	while(running)
 	{
@@ -76,19 +100,13 @@ int main(int argc, char **argv)
 					break;
 			}
 		}
-		SDL_RenderClear(renderer);
-
-		for(int y = 0; y < height; y++)
-		{
-			for(int x = 0; x < width; x++)
-			{
-				SDL_SetRenderDrawColor(renderer, noise[y * width + x], noise[y * width + x], noise[y * width + x], 255);
-				SDL_RenderDrawPoint(renderer, x, y);
-			}
-		}
+		
+		//SDL_RenderClear(renderer);
+		
+		SDL_RenderCopy(renderer, noiseTx, &src, &dst);
 
 		SDL_RenderPresent(renderer);
-		SDL_Delay(100);
+		SDL_Delay(1);
 	}
 	SDL_DestroyRenderer(renderer);
 	SDL_DestroyWindow(window);
