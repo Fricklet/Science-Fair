@@ -1,7 +1,7 @@
 # Science Fair Project
 Take a look at my mediocre and possibly buggy code.
 
-##Platform
+## Platform
 This code was compiled, tested, and written for Linux. While the code may compile and run fine on different operating systems (or at least with a little bit of tweaking), I'm _probably_ not going to put in direct effort to port it.
 
 ## What's in it
