@@ -2,7 +2,7 @@
 #include <cmath>
 #include <cstring>
 
-#include "Sieve.hpp"	// Contains code for prime sieve; this file is just a driver
+#include "Prime-Sieve.hpp"	// Contains code for prime sieve; this file is just a driver
 
 int main(int argc, char **argv)
 {

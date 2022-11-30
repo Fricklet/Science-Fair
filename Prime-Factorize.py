@@ -1,4 +1,4 @@
-import Sieve
+import Prime-Sieve
 import sys
 
 n = int(sys.argv[1])

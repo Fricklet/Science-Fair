@@ -2,7 +2,7 @@
 #include <cmath>
 #include <vector>
 
-#include "Sieve.hpp"
+#include "Prime-Sieve.hpp"
 
 int main(int argc, char **argv)
 {

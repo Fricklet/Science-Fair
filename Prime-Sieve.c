@@ -6,7 +6,7 @@
 #include <string.h>
 #include <stdbool.h>
 
-#include "Sieve.h"	// Contains code for prime sieve; this file is just a driver
+#include "Prime-Sieve.h"	// Contains code for prime sieve; this file is just a driver
 
 int main(int argc, char **argv)
 {

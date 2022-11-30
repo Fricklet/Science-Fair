@@ -5,7 +5,7 @@
 #include <string.h>
 #include <stdint.h>
 
-#include "Sieve.h"
+#include "Prime-Sieve.h"
 
 int *factors;
 

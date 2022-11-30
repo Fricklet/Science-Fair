@@ -1,6 +1,6 @@
 n = tonumber(arg[1])
 
-sievePrimes = require("Sieve_mod")
+sievePrimes = require("Prime-Sieve_mod")
 
 composites = sievePrimes(n)
 

@@ -4,7 +4,7 @@ if not n or n < 2 then
 	return 1
 end
 
-sievePrimes = require("Sieve_mod")
+sievePrimes = require("Prime-Sieve_mod")
 
 composites = sievePrimes(n)
 
